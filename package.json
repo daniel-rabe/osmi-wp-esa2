@@ -1,5 +1,6 @@
 {
   "name": "osmi-wp-esa2",
+  "homepage": "https://informatik.th-brandenburg.de/~rabedani/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

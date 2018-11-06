@@ -1,3 +1,9 @@
+#### URL
+
+https://informatik.th-brandenburg.de/~rabedani/index.html
+
+Wichtig: Python-Skript zur Datenspeicherung muss lokal gestartet sein und über http://localhost:5000 erreichbar sein
+
 #### Framework für DOM-Manipulation
 * React
 

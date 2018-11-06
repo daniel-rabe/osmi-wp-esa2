@@ -43,28 +43,35 @@ export class GuestbookManager {
 
     protected async persistentAdd(value: GuestbookEntry): Promise<void> {
         return new Promise<void>((resolve) => {
-            const xmlhttp: XMLHttpRequest = new XMLHttpRequest();
-            xmlhttp.open("POST", `${backendUrl}/add/${value.id}`);
-            xmlhttp.onreadystatechange = () => {
-                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            const xhttp: XMLHttpRequest = new XMLHttpRequest();
+            xhttp.open("POST", `${backendUrl}/add/${value.id}`);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState === 4 && xhttp.status === 200) {
                     resolve();
                 }
             };
-            xmlhttp.setRequestHeader("Content-Type", "application/json");
-            xmlhttp.send(JSON.stringify({name: value.name, email: value.email, message: value.message}));
+            xhttp.onerror = () => {
+                alert('Backend nicht erreichbar')
+                resolve();
+            }
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send(JSON.stringify({name: value.name, email: value.email, message: value.message}));
         });
     }
 
     protected async persistentRemove(value: GuestbookEntry): Promise<void> {
         return new Promise<void>((resolve) => {
-            const xmlhttp: XMLHttpRequest = new XMLHttpRequest();
-            xmlhttp.open("POST", `${backendUrl}/remove/${value.id}`);
-            xmlhttp.onreadystatechange = () => {
-                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            const xhttp: XMLHttpRequest = new XMLHttpRequest();
+            xhttp.open("POST", `${backendUrl}/remove/${value.id}`);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState === 4 && xhttp.status === 200) {
                     resolve();
                 }
             };
-            xmlhttp.send();
+            xhttp.onerror = () => {
+                alert('Backend nicht erreichbar')
+                resolve();
+            }
         });
     }
 
@@ -76,8 +83,10 @@ export class GuestbookManager {
             this.update(data);
           }
         };
+        xhttp.onerror = () => {
+            alert('Backend nicht erreichbar')
+        }
         xhttp.open("GET", `${backendUrl}/entries`, true);
         xhttp.send();
-
     }
 }
