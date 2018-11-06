@@ -1,11 +1,18 @@
 import * as React from 'react';
-import EsaBar from './EsaBar';
+import Header from './Header';
+import Content from './Content';
+import { GuestbookManager } from './GuestbookManager';
 
-class App extends React.Component {
+export interface AppProps {
+  manager: GuestbookManager;
+}
+
+class App extends React.Component<AppProps> {
   public render() {
     return (
       <React.Fragment>
-        <EsaBar/>
+        <Header manager={this.props.manager}/>
+        <Content manager={this.props.manager}/>
       </React.Fragment>
     );
   }

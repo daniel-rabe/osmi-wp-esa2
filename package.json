@@ -5,15 +5,20 @@
   "dependencies": {
     "@material-ui/core": "^3.4.0",
     "@material-ui/icons": "^3.0.1",
+    "@types/uuid": "^3.4.4",
+    "mobx": "^5.5.2",
+    "mobx-react": "^5.3.6",
+    "npm-run-all": "^4.1.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "3.1.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "startFrontend": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "startBackend": "python ./backend/index.py",
+    "start": "run-p startBackend startFrontend"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
