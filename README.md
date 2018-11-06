@@ -4,6 +4,9 @@
 #### State-Manager
 * MobX
 
+#### Backend
+* Flask (Python), JSON-Datei
+
 ---
 
 Ich habe Komponenten von Material-UI genutzt, diese haben bereits ein Layout, das ich nur wenig verändert habe.
